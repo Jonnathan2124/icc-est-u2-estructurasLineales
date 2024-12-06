@@ -57,12 +57,12 @@ public class Stack {
     //Metodo que retorna el tamaño de la pila.
     //complejidad O(n).
     public int getSize(){
-    //    int size = 0;
-    //    Node current = top;
-    //    while(current != null){
-    //       size++;
-    //        current = current.getNext();
-    //    }
+        int size = 0;
+        Node current = top;
+        while(current != null){
+           size++;
+            current = current.getNext();
+        }
         return size;
     }
 }

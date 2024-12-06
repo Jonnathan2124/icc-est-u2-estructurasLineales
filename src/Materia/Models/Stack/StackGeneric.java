@@ -2,6 +2,7 @@ package Materia.Models.Stack;
 
 import java.util.EmptyStackException;
 
+import Materia.Models.Node;
 import Materia.Models.NodeGeneric;
 
 public class StackGeneric <T>{
@@ -42,6 +43,33 @@ public class StackGeneric <T>{
      
     public boolean isEmpty(){
         return top == null;
+    }
+
+    public NodeGeneric(){
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
+        NodeGeneric<T> value = top.getValue();
+
+    }
+
+    public void printStack() {
+        NodeGeneric<T> current = top;  
+        while (current != null) {
+            System.out.println(current.getValue());  
+            current = current.getNext();  
+        }
+    }
+
+
+    public int getSize() {
+        int size = 0;
+        NodeGeneric<T> current = top;
+        while (current != null) {
+            size++;
+            current = current.getNext();
+        }
+        return size;
     }
     
 }

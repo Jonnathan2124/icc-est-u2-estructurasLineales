@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+import Materia.Models.Queues.Queues;
 import Materia.Models.Stack.StackGeneric;
 import Models.Pantalla;
 
@@ -31,7 +32,7 @@ public class App {
         router.push(new Pantalla(1, "Home Page", "/home/menu"));
         router.push(new Pantalla(1, "Users Page", "/home/menu/users"));
 
-        System.out.println("Esto y en "+router.peek().getRuta());
+        System.out.println("Estoy en "+router.peek().getRuta());
         System.out.println("Regreso a "+ router.pop());
         System.out.println("Estoy en "+ router.peek().getRuta());
 
@@ -39,5 +40,21 @@ public class App {
 
         System.out.println("Pantallas = " + router.getSize());
         System.out.println("Estoy en " + router.peek().getRuta());
+        router.printStack();
+    }
+
+    
+    public static void runQueues(){
+        Queues cola = new Queues();
+
+        cola.esqueue(10);
+        cola.esqueue(20);
+        cola.esqueue(30);
+        cola.esqueue(40);
+
+        System.out.println(cola.peek());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.peek());
     }
 }
