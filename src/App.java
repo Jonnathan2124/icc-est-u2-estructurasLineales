@@ -1,10 +1,13 @@
 import java.util.Stack;
-import Materia.Models.Stack.*;
+
+import Materia.Models.Stack.StackGeneric;
+import Models.Pantalla;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("");
-        runStack();
+        //runStack();
+        runStackGeneric();
     }
 
     public static void runStack(){
@@ -20,5 +23,21 @@ public class App {
         System.out.println("Cima      ->"+stacks.peek());
         System.out.println("Retirar   ->"+stacks.pop());
         System.out.println("Cima      ->"+stacks.peek());
+    }
+
+    public static void runStackGeneric(){
+        StackGeneric<Pantalla> router=new StackGeneric<>();
+        router.push(new Pantalla(1, "Home Page", "/home"));
+        router.push(new Pantalla(1, "Home Page", "/home/menu"));
+        router.push(new Pantalla(1, "Users Page", "/home/menu/users"));
+
+        System.out.println("Esto y en "+router.peek().getRuta());
+        System.out.println("Regreso a "+ router.pop());
+        System.out.println("Estoy en "+ router.peek().getRuta());
+
+        router.push(new Pantalla(1, "Settings Page", "/home/menu/users/settings"));
+
+        System.out.println("Pantallas = " + router.getSize());
+        System.out.println("Estoy en " + router.peek().getRuta());
     }
 }
